@@ -53,7 +53,7 @@ wrapRDS <- function(var, exprs, by_name = FALSE, pass_val = FALSE, assign_val = 
       # TODO: Revise if I need to create a new environment using new.env(). Is this function's own environment enough?
       message('Building ', varname, '.')
       var_val <- eval(substitute(exprs),
-        envir = new.env(parent = parent.frame(n = 1)))
+                      envir = new.env(parent = parent.frame(n = 1)))
       message(varname, " completed. Saving to file '", rds_file, "'... ")
       if(!dir.exists(rds_dir))
         dir.create(rds_dir, recursive = T)
@@ -115,6 +115,10 @@ getRDS <- function(var, by_name = FALSE, pass_val = FALSE, assign_val = TRUE) {
 # V 	Various 
 atc_roots <- c('A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V')
 
+extraer_ultimo_parametro <- function(url) {
+  partes <- strsplit(url, "/")[[1]]  # Divide la URL por '/'
+  return(tail(partes, n=1))  # Devuelve el último elemento
+}
 
 # Scrape data -----------------------------------------------------------------------------------------------------
 scrape_who_atc <- function(root_atc_code) {
@@ -123,18 +127,30 @@ scrape_who_atc <- function(root_atc_code) {
   if(length(root_atc_code) != 1)
     stop('scrape_who_atc() only accepts single objects, not vectors. Please provide a single valid ATC code as input.')
   
-  web_address <- paste0('https://www.whocc.no/atc_ddd_index/?code=', root_atc_code, '&showdescription=no')
+  web_address <- paste0('https://www.vademecum.com/atc/', tolower(root_atc_code))
   message('Scraping ', web_address, '.')
   atc_code_length <- nchar(root_atc_code)
   html_data <- read_html(web_address)
   
+  if(atc_code_length == 1) {
+    root <- html_data |>
+      html_element(css="h1.text-success") |>
+      html_text()
+    atc_code <- sub('^([A-Z]\\S*) (.*)', '\\1', root)
+    atc_description <- sub('^([A-Z]\\S*) - (.*)', '\\2', root)
+  }
+  
   if(atc_code_length < 5) {
-    scraped_strings <- html_data2 |>
-      html_node(css="#content > p:nth-of-type(2n)") |>
-      html_text() |>
-      strsplit('\n') |>
-      nth(1) |>
-      Filter(f = nchar)
+    strings <- html_data |>
+      html_elements(css=".card-title")
+    atributos <- strings |>
+      html_attr("href")
+    
+    codigos <- sapply(atributos, extraer_ultimo_parametro)
+    
+    descripciones <- strings |> html_text()
+    
+    t1 <- tibble(atc_code = codigos, atc_description=descripciones)
     
     if(length(scraped_strings) == 0)
       return(NULL)
@@ -210,3 +226,4 @@ write_csv(who_atc, out_file_name)
 
 # Finish execution ------------------------------------------------------------------------------------------------
 message('Script execution completed.')
+)
