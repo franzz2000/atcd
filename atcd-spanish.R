@@ -13,7 +13,7 @@ pacman::p_load(rvest)
 pacman::p_load(dplyr)
 pacman::p_load(readr)
 pacman::p_load(xml2)
-
+rm(list=ls())
 ensure_directory <- function(...) {
   dir_path <- paste0(...)
   if(!dir.exists(dir_path))
@@ -114,6 +114,8 @@ getRDS <- function(var, by_name = FALSE, pass_val = FALSE, assign_val = TRUE) {
 # S 	Sensory organs
 # V 	Various 
 atc_roots <- c('A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V')
+atc_roots <- c('A')
+atc_roots <- c('a09')
 
 extraer_ultimo_parametro <- function(url) {
   partes <- strsplit(url, "/")[[1]]  # Divide la URL por '/'
@@ -122,7 +124,7 @@ extraer_ultimo_parametro <- function(url) {
 
 # Scrape data -----------------------------------------------------------------------------------------------------
 scrape_who_atc <- function(root_atc_code) {
-  # This function scrapes and returns a tibble with all data available from https://www.whocc.no/atc_ddd_index/ for the
+  # This function scrapes and returns a tibble with all data available from https://www.vademecum.com/atc for the
   # given ATC code and all its subcodes.
   if(length(root_atc_code) != 1)
     stop('scrape_who_atc() only accepts single objects, not vectors. Please provide a single valid ATC code as input.')
@@ -131,13 +133,15 @@ scrape_who_atc <- function(root_atc_code) {
   message('Scraping ', web_address, '.')
   atc_code_length <- nchar(root_atc_code)
   html_data <- read_html(web_address)
-  
+  tabla <- tibble(atc_code = character(0), atc_description=character(0)) 
   if(atc_code_length == 1) {
     root <- html_data |>
       html_element(css="h1.text-success") |>
       html_text()
     atc_code <- sub('^([A-Z]\\S*) (.*)', '\\1', root)
     atc_description <- sub('^([A-Z]\\S*) - (.*)', '\\2', root)
+    t1 <- tibble(atc_code=tolower (atc_code), atc_description=atc_description)
+    tabla <- tabla |> bind_rows(t1)
   }
   
   if(atc_code_length < 5) {
@@ -145,19 +149,19 @@ scrape_who_atc <- function(root_atc_code) {
       html_elements(css=".card-title")
     atributos <- strings |>
       html_attr("href")
-    
-    codigos <- sapply(atributos, extraer_ultimo_parametro)
-    
-    descripciones <- strings |> html_text()
-    
-    t1 <- tibble(atc_code = codigos, atc_description=descripciones)
-    
-    if(length(scraped_strings) == 0)
+   
+  atc_codes <- sapply(atributos, extraer_ultimo_parametro)
+  descripciones <- strings |> html_text()    
+  
+  #scraped_strings <- tibble(atc_code=atc_codes, atc_description=descripciones) 
+  scraped_strings <- paste(atc_codes, descripciones)
+  
+  if(length(scraped_strings) == 0)
       return(NULL)
     
     tval <- lapply(scraped_strings, function(scraped_string) {
-      atc_codes <- sub('^([A-Z]\\S*) (.*)', '\\1', scraped_string)
-      atc_names <- sub('^([A-Z]\\S*) (.*)', '\\2', scraped_string)
+      atc_codes <- sub('^([a-z]\\S*) (.*)', '\\1', scraped_string)
+      atc_names <- sub('^([a-z]\\S*) (.*)', '\\2', scraped_string)
       t1 <- tibble(atc_code = atc_codes, atc_name = atc_names)
       t2 <- lapply(atc_codes, scrape_who_atc) |> bind_rows()
       bind_rows(t1, t2)
@@ -226,4 +230,3 @@ write_csv(who_atc, out_file_name)
 
 # Finish execution ------------------------------------------------------------------------------------------------
 message('Script execution completed.')
-)

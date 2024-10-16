@@ -129,7 +129,7 @@ scrape_who_atc <- function(root_atc_code) {
   html_data <- read_html(web_address)
   
   if(atc_code_length < 5) {
-    scraped_strings <- html_data2 |>
+    scraped_strings <- html_data |>
       html_node(css="#content > p:nth-of-type(2n)") |>
       html_text() |>
       strsplit('\n') |>
