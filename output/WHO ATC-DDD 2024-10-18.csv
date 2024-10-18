@@ -1,0 +1,404 @@
+atc_code,atc_description
+a,Sistema digestivo y metabolismo
+a14,Agentes anabólicos para uso sistémico
+a14a,Esteroides anabólicos
+a14aa,Derivados del androstano
+a14aa02,Estanozolol
+a14aa04,Metenolona
+a14ab,Derivados del estreno
+a14ab01,Nandrolona
+a03,Agentes contra enfermedades funcionales del estómago e intestino
+a03a,Agentes contra padecimientos funcionales del estómago
+a03ab,"Anticolinérgicos sintéticos, compuestos de amonio cuaternario"
+a03ab02,Bromuro de glicopirronio
+a03ab06,Bromuro de otilonio
+a03aa,"Anticolinérgicos sintéticos, ésteres con grupo amino terciario"
+a03aa04,Mebeverina
+a03aa05,Trimebutina
+a03ax,Otros agentes contra padecimientos funcionales del estómago
+a03ax15,"Menta piperita, aceite esencial de"
+a03ax04,Pinaverio
+a03ax13,Siliconas
+a03d,Antiespasmódicos en combinación con analgésicos
+a03db,Belladona y derivados en combinación con analgésicos
+a03db04,Butilescopolamina y analgésicos
+a03b,"Belladona y derivados, monofármacos"
+a03ba,"Alcaloides de la belladona, aminas terciarias"
+a03ba01,Atropina
+a03bb,"Alcaloides semisintéticos de la belladona, compuestos de amonio cuaternario"
+a03bb01,Butilescopolamina
+a03f,Propulsivos
+a03fa,Propulsivos
+a03fa08,Cinitaprida
+a03fa06,Cleboprida
+a03fa03,Domperidona
+a03fa07,Itoprida
+a03fa01,Metoclopramida
+a03fa51,"Metoclopramida, combinaciones con"
+a02,Agentes para el tratamiento de alteraciones causadas por ácidos
+a02b,Agentes contra la úlcera péptica y el reflujo gastroesofágico (RGE/GORD)
+a02ba,Antagonistas del receptor H2
+a02ba03,Famotidina
+a02ba53,"Famotidina, combinaciones con"
+a02ba02,Ranitidina
+a02bd,Combinaciones para la erradicación del helicobacter pylori
+a02bd08,"Subcitrato de bismuto, tetraciclina y metronidazol"
+a02bc,Inhibidores de la bomba de protones
+a02bc06,Dexlansoprazol
+a02bc05,Esomeprazol
+a02bc03,Lansoprazol
+a02bc01,Omeprazol
+a02bc02,Pantoprazol
+a02bc04,Rabeprazol
+a02bx,Otros agentes contra la úlcera péptica y el reflujo gastroesofágico (RGE/GORD)
+a02bx05,Subcitrato de bismuto
+a02bx02,Sucralfato
+a02bx91,Zinc acexamato
+a02bb,Prostaglandinas
+a02bb01,Misoprostol
+a02a,Antiácidos
+a02ah,Antiácidos con bicarbonato de sodio
+a02ah91,Sodio bicarbonato
+a02ad,"Combinaciones y complejos de compuesto de aluminio, calcio y magnesio"
+a02ad03,Almagato
+a02ad05,Almasilato
+a02ad01,Combinaciones de sales simples
+a02ad02,Magaldrato
+a02aa,Compuestos de magnesio
+a02aa04,Hidróxido de magnesio
+a02ax,Otras combinaciones con antiácidos
+a07,"Antidiarreicos, agentes antiinflamatorios y antiinfecciosos intestinales"
+a07b,Adsorbentes intestinales
+a07ba,Preparados con carbón
+a07ba01,Carbón medicinal
+a07e,Agentes antiinflamatorios intestinales
+a07ec,Ácido aminosalicílico y agentes similares
+a07ec02,Mesalazina
+a07ec01,Sulfasalazina
+a07eb,"Agentes antialérgicos, excluyendo corticosteroides"
+a07eb01,Ácido cromoglícico
+a07ea,Corticosteroides de acción local
+a07ea07,Beclometasona
+a07ea06,Budesonida
+a07ea91,Triamcinolona
+a07a,Antiinfecciosos intestinales
+a07aa,Antibióticos
+a07aa12,Fidaxomicina
+a07aa01,Neomicina
+a07aa51,"Neomicina, combinaciones con"
+a07aa02,Nistatina
+a07aa06,Paromomicina
+a07aa13,Rifamicina
+a07aa11,Rifaximina
+a07d,Antipropulsivos
+a07da,Antipropulsivos
+a07da06,Eluxadolina
+a07da91,"Etilmorfina, combinaciones con"
+a07da03,Loperamida
+a07da53,"Loperamida, combinaciones con"
+a07da52,"Morfina, combinaciones con"
+a07da02,Opio
+a07c,Electrolitos con carbohidratos
+a07ca,Formulaciones de sales de rehidratación oral
+a07ca91,Sales para rehidratación oral
+a07f,Microorganismos antidiarreicos
+a07fa,Microorganismos antidiarreicos
+a07fa01,"Ácido láctico, organismo productores de"
+a07fa51,"Ácido láctico, organismos productores de, combinaciones con"
+a07fa02,Saccharomyces boulardii
+a07x,Otros antidiarreicos
+a07xa,Otros antidiarreicos
+a07xa04,Racecadotrilo
+a07xa01,Tanato de albúmina
+a04,Antieméticos y antinauseosos
+a04a,Antieméticos y fármacos para las nauseas
+a04aa,Antagonistas de receptores de serotonina (5-HT3)
+a04aa02,Granisetrón
+a04aa01,Ondansetrón
+a04aa05,Palonosetrón
+a04aa55,"Palonosetron, combinaciones"
+a04aa03,Tropisetrón
+a04ad,Otros antieméticos
+a04ad12,Aprepitant
+a04ad01,Escopolamina
+a04ad14,Rolapitant
+a09,"Digestivos, incluidos enzimas"
+a09a,"Digestivos, incluyendo enzimas"
+a09aa,Preparados enzimáticos
+a09aa02,"Multienzimas (lipasa, proteasa, etc.)"
+a09aa52,Multienzimas asociados a otras sustancias
+a15,Estimulantes del apetito
+a15z,Estimulantes del apetito
+a15zz,Estimulantes del apetito
+a15zz91,"Ciproheptadina, combinaciones con"
+a10,Fármacos usados en diabetes
+a10b,Fármacos hipoglucemiantes excluyendo insulinas
+a10bj,Analogos al peptido similar al glucagon (GLP-1)
+a10bj04,Albiglutida
+a10bj05,Dulaglutida
+a10bj01,Exenatida
+a10bj02,Liraglutida
+a10bj03,Lixisenatida
+a10bj06,Semaglutida
+a10ba,Biguanidas
+a10ba02,Metformina
+a10bd,Combinaciones de fármacos hipoglucemiantes orales
+a10bd06,Glimepirida y pioglitazona
+a10bd19,Linagliptina y empagliflozina
+a10bd13,Metformina y alogliptina
+a10bd16,Metformina y canagliflozina
+a10bd15,Metformina y dapagliflozina
+a10bd20,Metformina y empagliflozina
+a10bd23,Metformina y ertugliflozina
+a10bd11,Metformina y linagliptina
+a10bd05,Metformina y pioglitazona
+a10bd03,Metformina y rosiglitazona
+a10bd10,Metformina y saxagliptina
+a10bd07,Metformina y sitagliptina
+a10bd08,Metformina y vildagliptina
+a10bd09,Pioglitazona y alogliptina
+a10bd21,Saxagliptina y dapagliflozina
+a10bb,Derivados de las sulfonilureas
+a10bb01,Glibenclamida
+a10bb09,Gliclazida
+a10bb12,Glimepirida
+a10bb07,Glipizida
+a10bb08,Gliquidona
+a10bb91,Glisentida
+a10bf,Inhibidores de la alfa glucosidasa
+a10bf01,Acarbosa
+a10bf02,Miglitol
+a10bh,Inhibidores de la dipeptidil peptidasa 4 (DPP-4 peptidasa)
+a10bh04,Alogliptina
+a10bh05,Linagliptina
+a10bh03,Saxagliptina
+a10bh01,Sitagliptina
+a10bh02,Vildagliptina
+a10bk,Inhibidores del cotransportador sodio-glucosa tipo 2 (SGLT2)
+a10bk02,Canagliflozina
+a10bk01,Dapagliflozina
+a10bk03,Empagliflozina
+a10bk04,Ertugliflozina
+a10bx,Otros fármacos hipoglucemiantes excluyendo insulinas
+a10bx01,Goma guar
+a10bx03,Nateglinida
+a10bx02,Repaglinida
+a10bx16,Tirzepatida
+a10bg,Tiazolidinadionas
+a10bg03,Pioglitazona
+a10bg02,Rosiglitazona
+a10a,Insulinas y análogos
+a10ac,Insulinas y análogos de acción intermedia para inyección
+a10ac01,Insulina (humana)
+a10ac04,Insulina lispro
+a10ae,Insulinas y análogos de acción prolongada para inyección
+a10ae06,Insulina degludec
+a10ae56,Insulina degludec y liraglutida
+a10ae05,Insulina detemir
+a10ae04,Insulina glargina
+a10ae54,Insulina glargina y lixisenatida
+a10ab,Insulinas y análogos de acción rápida para inyección
+a10ab01,Insulina (humana)
+a10ab05,Insulina asparta
+a10ab06,Insulina glulisina
+a10ab04,Insulina lispro
+a10ad,Insulinas y analogos; combinaciones de insulinas de accion intermedia o prolongada con insulinas de accion inmediata para inyeccion
+a10ad01,Insulina (humana)
+a10ad05,Insulina asparta
+a10ad06,Insulina degludec e insulina asparta
+a10ad04,Insulina lispro
+a06,Laxantes
+a06a,Fármacos para el estreñimiento
+a06ah,Antagonistas del receptor opiode periférico
+a06ah01,Bromuro de metilnaltrexona
+a06ah05,Naldemedina
+a06ah03,Naloxegol
+a06ag,Enemas
+a06ag20,"Enemas, combinaciones con"
+a06ag01,Fosfato de sodio
+a06ag04,Glicerol
+a06ag11,"Sodio lauril sulfoacetato, incluyendo combinaciones"
+a06ac,Formadores de volumen
+a06ac01,Ispaghula (semillas de psyllium)
+a06ac51,"Ispaghula, combinaciones con"
+a06ac06,Metilcelulosa
+a06ab,Laxantes de contacto
+a06ab05,Aceite de ricino
+a06ab02,Bisacodilo
+a06ab07,Cáscara
+a06ab57,"Cáscara, combinaciones con"
+a06ab06,Glicósidos de sena
+a06ab56,"Glicósidos de sena, combinaciones con"
+a06ab20,Laxantes de contacto en combinación
+a06ab08,Picosulfato de sodio
+a06ab58,"Picosulfato de sodio, combinaciones con"
+a06ad,Laxantes osmóticos
+a06ad17,Fosfato de sodio
+a06ad12,Lactitol
+a06ad11,Lactulosa
+a06ad15,Macrogol
+a06ad65,"Macrogol, combinaciones con"
+a06ad91,Magnesio hidroxido
+a06ad10,Sales minerales en combinación
+a06ax,Otros laxantes
+a06ax01,Glicerol
+a06ax04,Linaclotida
+a06ax03,Lubiprostona
+a06ax05,Prucaloprida
+a06aa,"Suavizantes, emolientes"
+a06aa51,"Parafina blanda, combinaciones con"
+a06aa01,Parafina liquida
+a16,Otros productos para el tracto alimentario y metabolismo
+a16a,Otros productos para el tracto alimentario y metabolismo
+a16aa,Aminoácidos y derivados
+a16aa05,Ácido carglúmico
+a16aa06,Betaína
+a16aa01,Levocarnitina
+a16aa04,Mercaptamina
+a16aa07,Metreleptina
+a16ab,Enzimas
+a16ab03,Agalsidasa alfa
+a16ab04,Agalsidasa beta
+a16ab07,Alglucosidasa alfa
+a16ab13,Asfotasa alfa
+a16ab21,Atidarsagén autotemcel
+a16ab22,Avalglucosidasa alfa
+a16ab17,Cerliponasa alfa
+a16ab23,Cipaglucosidasa alfa
+a16ab26,Eladocagén exuparvovec
+a16ab12,Elosulfasa alfa
+a16ab09,Idursulfasa
+a16ab02,Imiglucerasa
+a16ab05,Laronidase
+a16ab25,Olipudasa alfa
+a16ab20,Pegunigalsidasa alfa
+a16ab19,Pegvaliasa
+a16ab24,Pegzilarginasa
+a16ab14,Sebelipasa alfa
+a16ab10,Velaglucerasa alfa
+a16ab15,Velmanasa alfa
+a16ab18,Vestronidasa alfa
+a16ax,Productos varios para el tracto alimentario y el metabolismo
+a16ax05,Acetato de zinc
+a16ax01,Ácido tióctico
+a16ax10,Eliglustat
+a16ax09,Fenilbutirato de glicerol
+a16ax03,Fenilbutirato de sodio
+a16ax16,Givosirán
+a16ax18,Lumasiran
+a16ax14,Migalastat
+a16ax06,Miglustat
+a16ax04,Nitisinona
+a16ax07,Sapropterina
+a16ax08,Teduglutida
+a16ax15,Telotristat
+a16ax12,Trientina
+a08,"Preparados contra la obesidad, excluidos productos dietéticos"
+a08a,"Preparados contra la obesidad, excluyendo productos dietéticos"
+a08ax,Otros agentes contra la obesidad
+a08aa,Productos contra la obesidad de acción central
+a08aa62,Bupropion y naltrexona
+a08aa12,Setmelanotida
+a08ab,Productos contra la obesidad de acción periférica
+a08ab01,Orlistat
+a01,Preparados estomatológicos
+a01a,Preparados estomatológicos
+a01aa,Agentes para la profilaxis de las caries
+a01aa01,Fluoruro de sodio
+a01ab,Antiinfecciosos y antisépticos para el tratamiento oral-local
+a01ab03,Clorhexidina
+a01ab22,Doxiciclina
+a01ab09,Miconazol
+a01ab19,Perborato de sodio
+a01ac,Corticosteroides para tratamiento oral-local
+a01ac03,Hidrocortisona
+a01ac53,"Hidrocortisona, combinaciones con"
+a01ad,Otros agentes para tratamiento oral-local
+a01ad02,Bencidamina
+a01ad92,Carbenoxolona
+a01ad11,Varios
+a12,Suplementos minerales
+a12a,Calcio
+a12aa,Calcio
+a12aa91,Calcio pidolato
+a12aa04,Carbonato de calcio
+a12aa92,Complejo oseina-hidroxiapatita
+a12aa01,Fosfato de calcio
+a12aa03,Gluconato de calcio
+a12ax,"Calcio, combinaciones con, vitamina D y/o otros fármacos"
+a12ax93,"Calcio carbonato y colecalciferol, combinaciones con"
+a12ax91,"Calcio fosfato y colecalciferol, combinaciones con"
+a12ax94,"Calcio glucoheptonato y colecalciferol, combinaciones con"
+a12ax92,"Calcio lactato y colecalciferol, combinaciones con"
+a12ax96,"Calcio pidolato y colecalciferol, combinaciones con"
+a12ax97,Otras asociaciones de calcio
+a12c,Otros suplementos minerales
+a12cc,Magnesio
+a12cc06,Lactato de magnesio
+a12cc30,Magnesio (combinación de diferentes sales)
+a12cc08,Pidolato de magnesio
+a12cx,Productos con otros minerales
+a12cx91,Fosforo
+a12ce,Selenio
+a12ce02,Selenito de sodio
+a12b,Potasio
+a12ba,Potasio
+a12ba04,Bicarbonato de potasio
+a12ba01,Cloruro de potasio
+a12ba30,Potasio (combinacion de diferentes sales)
+a12ba91,Potasio gluceptato
+a05,Terapia biliar y hepática
+a05a,Terapia biliar
+a05aa,Acidos biliares y derivados
+a05aa03,Ácido cólico
+a05aa04,Acido obeticolico
+a05aa01,Ácido quenodesoxicólico
+a05aa02,Ácido ursodesoxicólico
+a05ax,Otros fármacos para terapia biliar
+a05ax04,Cloruro de maralixibat
+a05ax06,Elafibranor
+a05ax05,Odevixibat
+a05b,"Terapia hepática, lipotrópicos"
+a05ba,Terapia hepática
+a05ba03,Silimarina
+a13,Tónicos
+a13a,Tónicos
+a11,Vitaminas
+a11g,"Ácido ascórbico (vitamina C), incluyendo combinaciones"
+a11gb,"Ácido ascórbico (vitamina C), combinaciones"
+a11ga,"Ácido ascórbico (vitamina C), monofármaco"
+a11ga01,Ácido ascórbico (vitamina C)
+a11b,Multivitamínicos solos
+a11ba,Multivitamínicos solos
+a11ba91,"Vitaminas A y E, combinaciones con"
+a11a,"Multivitamínicos, combinaciones"
+a11aa,Multivitamínicos con minerales
+a11aa03,"Multivitamínicos con otros minerales, incluyendo combinaciones"
+a11h,"Otros preparados de vitaminas, monofármacos"
+a11ha,"Otros preparados de vitaminas, monofármacos"
+a11ha05,Biotina
+a11ha30,Dexpantenol
+a11ha02,Piridoxina (vitamina B6)
+a11ha03,Tocoferol (vitamina E)
+a11ha08,Tocofersolán
+a11j,"Otros productos con vitaminas, combinaciones"
+a11ja,Combinaciones de vitaminas
+a11jb,Vitaminas con minerales
+a11jc,"Vitaminas, otras combinaciones"
+a11d,"Vitamina B1, sola y en combinación con vitaminas B6 y B12"
+a11db,Vitamina B1 en combinación con vitamina B6 y/o vitamina B12
+a11db91,Vitamina B1 en combinación con vitamina B6 y/o vitamina B12
+a11da,Vitamina B1 sola
+a11da02,Sulbutiamina
+a11da01,Tiamina (vitamina B1)
+a11c,"Vitaminas A y D, incluyendo combinaciones de las dos"
+a11ca,Vitamina a sola
+a11ca01,Retinol (vitamina A)
+a11cc,Vitamina D y análogos
+a11cc03,Alfacalcidol
+a11cc06,Calcifediol
+a11cc04,Calcitriol
+a11cc05,Colecalciferol
+a11e,"Vitaminas del complejo B, incluyendo combinaciones"
+a11eb,Vitaminas del complejo B con vitamina C
+a11ex,"Vitaminas del complejo B, otras combinaciones"
