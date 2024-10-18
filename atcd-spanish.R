@@ -115,7 +115,7 @@ getRDS <- function(var, by_name = FALSE, pass_val = FALSE, assign_val = TRUE) {
 # V 	Various 
 atc_roots <- c('A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V')
 atc_roots <- c('A')
-atc_roots <- c('a07fa')
+#atc_roots <- c('a03fa')
 
 extraer_ultimo_parametro <- function(url) {
   partes <- strsplit(url, "/")[[1]]  # Divide la URL por '/'
@@ -146,9 +146,11 @@ scrape_who_atc <- function(root_atc_code) {
     tabla <- tabla |> bind_rows(t1)
   }
   
-  if(atc_code_length < 5) {
+  if(atc_code_length < 6) {
     strings <- html_data |>
       html_elements(css=".card-title")
+    #Elimno los enlaces que no son a un atc
+    strings <- strings[grepl("atc", html_attr(strings, "href"))]
     atributos <- strings |>
       html_attr("href")
    
@@ -203,7 +205,7 @@ scrape_who_atc <- function(root_atc_code) {
       return(retval)
     }
     
-    retval <- html_nodes(html_data, css="a.card-title.lead") |> 
+    retval <- html_elements(html_data, css="a.card-title.lead") |> 
       proc_sdt()
     
     return(retval)
