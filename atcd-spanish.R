@@ -115,7 +115,7 @@ getRDS <- function(var, by_name = FALSE, pass_val = FALSE, assign_val = TRUE) {
 # V 	Various 
 atc_roots <- c('A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V')
 atc_roots <- c('A')
-atc_roots <- c('a09')
+atc_roots <- c('a07fa')
 
 extraer_ultimo_parametro <- function(url) {
   partes <- strsplit(url, "/")[[1]]  # Divide la URL por '/'
@@ -132,6 +132,8 @@ scrape_who_atc <- function(root_atc_code) {
   web_address <- paste0('https://www.vademecum.com/atc/', tolower(root_atc_code))
   message('Scraping ', web_address, '.')
   atc_code_length <- nchar(root_atc_code)
+  if(nchar(root_atc_code)>9)
+    return()
   html_data <- read_html(web_address)
   tabla <- tibble(atc_code = character(0), atc_description=character(0)) 
   if(atc_code_length == 1) {
@@ -201,7 +203,7 @@ scrape_who_atc <- function(root_atc_code) {
       return(retval)
     }
     
-    retval <- html_node(html_data, xpath="//ul/table") |> 
+    retval <- html_nodes(html_data, css="a.card-title.lead") |> 
       proc_sdt()
     
     return(retval)
