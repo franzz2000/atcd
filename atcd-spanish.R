@@ -114,8 +114,7 @@ getRDS <- function(var, by_name = FALSE, pass_val = FALSE, assign_val = TRUE) {
 # S 	Sensory organs
 # V 	Various 
 atc_roots <- c('A', 'B', 'C', 'D', 'G', 'H', 'J', 'L', 'M', 'N', 'P', 'R', 'S', 'V')
-atc_roots <- c('A')
-#atc_roots <- c('a03fa')
+#atc_roots <- c('A')
 
 extraer_ultimo_parametro <- function(url) {
   partes <- strsplit(url, "/")[[1]]  # Divide la URL por '/'
@@ -136,21 +135,20 @@ scrape_who_atc <- function(root_atc_code) {
     return()
   html_data <- read_html(web_address)
   tabla <- tibble(atc_code = character(0), atc_description=character(0)) 
-  if(atc_code_length == 1) {
-    root <- html_data |>
+  root <- html_data |>
       html_element(css="h1.text-success") |>
       html_text()
-    atc_code <- sub('^([A-Z]\\S*) (.*)', '\\1', root)
-    atc_description <- sub('^([A-Z]\\S*) - (.*)', '\\2', root)
-    t1 <- tibble(atc_code=tolower (atc_code), atc_description=atc_description)
-    tabla <- tabla |> bind_rows(t1)
-  }
+  atc_code <- sub('^([A-Z]\\S*) (.*)', '\\1', root)
+  atc_description <- sub('^([A-Z]\\S*) - (.*)', '\\2', root)
+  t1 <- tibble(atc_code=tolower (atc_code), atc_description=atc_description)
+  tabla <- tabla |> bind_rows(t1)
   
-  if(atc_code_length < 6) {
-    strings <- html_data |>
+  strings <- html_data |>
       html_elements(css=".card-title")
     #Elimno los enlaces que no son a un atc
     strings <- strings[grepl("atc", html_attr(strings, "href"))]
+    if(length(strings) == 0)
+      return(NULL)
     atributos <- strings |>
       html_attr("href")
    
@@ -160,57 +158,17 @@ scrape_who_atc <- function(root_atc_code) {
   #scraped_strings <- tibble(atc_code=atc_codes, atc_description=descripciones) 
   scraped_strings <- paste(atc_codes, descripciones)
   
-  if(length(scraped_strings) == 0)
-      return(NULL)
-    
-    tval <- lapply(scraped_strings, function(scraped_string) {
-      atc_codes <- sub('^([a-z]\\S*) (.*)', '\\1', scraped_string)
-      atc_names <- sub('^([a-z]\\S*) (.*)', '\\2', scraped_string)
-      t1 <- tibble(atc_code = atc_codes, atc_name = atc_names)
-      t2 <- lapply(atc_codes, scrape_who_atc) |> bind_rows()
-      bind_rows(t1, t2)
-    }) |>
-      bind_rows()
-    
-    # Add the root node if needed.
-    if(atc_code_length == 1) {
-      root_atc_code_name <- html_data |>
-        html_nodes(css="#content a")
-      
-      root_atc_code_name <- root_atc_code_name[3]
-      
-      root_atc_code_name <- html_text(root_atc_code_name)
-      
-      return(bind_rows(tibble(atc_code = root_atc_code, atc_name = root_atc_code_name), tval))
-    } else return(tval)
-  } else {
-    proc_sdt <- function(sdt) {
-      if(class(sdt) == 'xml_missing')
-        return(NULL)
-      
-      retval <- sdt |>
-        html_table(header = TRUE) |>
-        rename(atc_code = `ATC code`, atc_name = Name, ddd = DDD, uom = U, adm_r = `Adm.R`, note = Note) |>
-        mutate_all(~ifelse(.=='', NA, .))
-      
-      # The table on the website does not repeat atc_code and atc_name in subsequent rows when that ATC code has more
-      # than one ddd/uom/adm_r. Let's fill-in the blanks when that is the case.
-      if(nrow(retval) > 1)
-        for(i in 2:nrow(retval))
-          if(is.na(retval$atc_code[i])) {
-            retval$atc_code[i] <- retval$atc_code[i-1]
-            retval$atc_name[i] <- retval$atc_name[i-1]
-          }
-      
-      return(retval)
-    }
-    
-    retval <- html_elements(html_data, css="a.card-title.lead") |> 
-      proc_sdt()
-    
-    return(retval)
-  }
-}
+  tval <- lapply(scraped_strings, function(scraped_string) {
+    atc_codes <- sub('^([a-z]\\S*) (.*)', '\\1', scraped_string)
+    atc_names <- sub('^([a-z]\\S*) (.*)', '\\2', scraped_string)
+    t1 <- tibble(atc_code = atc_codes, atc_description = atc_names)
+    t2 <- lapply(atc_codes, scrape_who_atc) |> bind_rows()
+  bind_rows(t1, t2)
+  }) |>
+  bind_rows()
+  
+  return(bind_rows(tabla, tval))
+} 
 
 # Request all codes and subcodes within atc_roots.
 for(atc_root in atc_roots)
@@ -222,10 +180,11 @@ for(atc_root in atc_roots)
 # Read the files produced by scrape_who_atc().
 who_atc <- paste0('who_atc_', atc_roots) |>
   lapply(getRDS, by_name = TRUE, assign_val = FALSE, pass_val = TRUE) |>
-  bind_rows()
+  bind_rows() |>
+  distinct()
 
 # Write them to a CSV file. Generate file name from current date in year-month-day format.
-out_file_name <- paste0(out_dir, '/WHO ATC-DDD ', format(Sys.Date(), "%Y-%m-%d"), '.csv')
+out_file_name <- paste0(out_dir, '/WHO ATC ', format(Sys.Date(), "%Y-%m-%d"), '.csv')
 message('Writing results to ', out_file_name, '.')
 if(file.exists(out_file_name))
   message('Warning: file already exists. Will be overwritten.')
