@@ -146,7 +146,7 @@ scrape_who_atc <- function(root_atc_code) {
   strings <- html_data |>
       html_elements(css=".card-title")
     #Elimno los enlaces que no son a un atc
-    strings <- strings[grepl("atc", html_attr(strings, "href"))]
+    strings <- strings[grepl("/atc/", html_attr(strings, "href"))]
     if(length(strings) == 0)
       return(NULL)
     atributos <- strings |>
